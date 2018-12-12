@@ -1,11 +1,11 @@
 package pl.tscript3r.petclinic.services.map;
 
 import pl.tscript3r.petclinic.model.Vet;
-import pl.tscript3r.petclinic.services.CrudService;
+import pl.tscript3r.petclinic.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override
     public Set<Vet> findAll() {

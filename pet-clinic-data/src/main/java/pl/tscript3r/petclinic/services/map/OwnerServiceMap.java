@@ -1,11 +1,11 @@
 package pl.tscript3r.petclinic.services.map;
 
 import pl.tscript3r.petclinic.model.Owner;
-import pl.tscript3r.petclinic.services.CrudService;
+import pl.tscript3r.petclinic.services.OwnerService;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
@@ -30,6 +30,12 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner findById(Long id) {
         return super.findById(id);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        // TODO: Implement findByLastName function
+        return null;
     }
 
 }
