@@ -5,8 +5,26 @@
     <title>Pet Clinic</title>
 </head>
 <body>
+    <!--/*@thymesVar id="vet" type="pl.tscript3r.petclinic.model.Vet"*/-->
 
     <h1 th:text="'List of Vets'">List of Vets</h1>
+
+    <table th:object="${vets}" id="vetsTable">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="vet : ${vets}">
+                <td  th:text="${vet.getId()}"></td>
+                <td  th:text="${vet.getFirstName()}"></td>
+                <td  th:text="${vet.getLastName()}"></td>
+            </tr>
+        </tbody>
+    </table>
 
 </body>
 </html>
