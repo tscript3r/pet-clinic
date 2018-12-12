@@ -8,8 +8,6 @@ import pl.tscript3r.petclinic.model.Owner;
 import pl.tscript3r.petclinic.model.Vet;
 import pl.tscript3r.petclinic.services.OwnerService;
 import pl.tscript3r.petclinic.services.VetService;
-import pl.tscript3r.petclinic.services.map.OwnerServiceMap;
-import pl.tscript3r.petclinic.services.map.VetServiceMap;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
@@ -18,10 +16,9 @@ public class DataInitializer implements CommandLineRunner {
     private final VetService vetService;
     private final Logger logger = LoggerFactory.getLogger(DataInitializer.class);
 
-
-    public DataInitializer() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    public DataInitializer(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
