@@ -1,7 +1,7 @@
 package pl.tscript3r.petclinic.services.map;
 
 import org.springframework.stereotype.Service;
-import pl.tscript3r.petclinic.model.Speciality;
+import pl.tscript3r.petclinic.models.Speciality;
 import pl.tscript3r.petclinic.services.SpecialityService;
 
 import java.util.Set;

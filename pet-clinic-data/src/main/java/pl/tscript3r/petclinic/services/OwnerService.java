@@ -1,6 +1,6 @@
 package pl.tscript3r.petclinic.services;
 
-import pl.tscript3r.petclinic.model.Owner;
+import pl.tscript3r.petclinic.models.Owner;
 
 
 public interface OwnerService extends CrudService<Owner, Long> {

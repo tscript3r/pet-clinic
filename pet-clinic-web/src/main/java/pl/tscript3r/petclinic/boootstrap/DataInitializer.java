@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import pl.tscript3r.petclinic.model.*;
+import pl.tscript3r.petclinic.models.*;
 import pl.tscript3r.petclinic.services.OwnerService;
 import pl.tscript3r.petclinic.services.PetTypeService;
 import pl.tscript3r.petclinic.services.SpecialityService;

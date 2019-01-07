@@ -1,4 +1,4 @@
-package pl.tscript3r.petclinic.model;
+package pl.tscript3r.petclinic.models;
 
 import javax.persistence.*;
 import java.util.HashSet;
