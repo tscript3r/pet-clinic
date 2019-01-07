@@ -40,81 +40,81 @@ public class DataInitializer implements CommandLineRunner {
 
         logger.warn("Loading bootstrap data");
 
-        Speciality s0 = new Speciality();
-        s0.setDescription("Radiology");
-        Speciality s0Saved = specialityService.save(s0);
+        Speciality radiology = new Speciality();
+        radiology.setDescription("Radiology");
+        Speciality radiologySaved = specialityService.save(radiology);
 
-        Speciality s1 = new Speciality();
-        s1.setDescription("Surgery");
-        Speciality s1Saved = specialityService.save(s1);
+        Speciality surgery = new Speciality();
+        surgery.setDescription("Surgery");
+        Speciality surgerySaved = specialityService.save(surgery);
 
-        Speciality s2 = new Speciality();
-        s2.setDescription("Dentistry");
-        Speciality s2Saved = specialityService.save(s2);
+        Speciality dentistry = new Speciality();
+        dentistry.setDescription("Dentistry");
+        Speciality dentistrySaved = specialityService.save(dentistry);
 
         logger.info("Loaded speciality types");
 
-        PetType pt0 = new PetType();
-        pt0.setName("Dog");
-        petTypeService.save(pt0);
+        PetType dogType = new PetType();
+        dogType.setName("Dog");
+        petTypeService.save(dogType);
 
-        PetType pt1 = new PetType();
-        pt0.setName("Cat");
-        petTypeService.save(pt0);
+        PetType catType = new PetType();
+        catType.setName("Cat");
+        petTypeService.save(catType);
 
         logger.info("Loaded pet types");
 
-        Owner owner0 = new Owner();
-        owner0.setFirstName("Michael");
-        owner0.setLastName("Weston");
-        owner0.setAddress("Wyszyńskiego 213 / 23");
-        owner0.setCity("Wrocław");
-        owner0.setTelephone("00487301233112");
+        Owner michael = new Owner();
+        michael.setFirstName("Michael");
+        michael.setLastName("Weston");
+        michael.setAddress("Wyszyńskiego 213 / 23");
+        michael.setCity("Wrocław");
+        michael.setTelephone("00487301233112");
 
-        Pet owner0Pet0 = new Pet();
-        owner0Pet0.setName("Saba");
-        owner0Pet0.setOwner(owner0);
-        owner0Pet0.setPetType(pt0);
-        owner0Pet0.setBirthDate(LocalDate.now());
+        Pet sabaDog = new Pet();
+        sabaDog.setName("Saba");
+        sabaDog.setOwner(michael);
+        sabaDog.setPetType(dogType);
+        sabaDog.setBirthDate(LocalDate.now());
 
-        owner0.getPets().add(owner0Pet0);
-        ownerService.save(owner0);
+        michael.getPets().add(sabaDog);
+        ownerService.save(michael);
 
         Visit visit = new Visit();
-        visit.setPet(owner0Pet0);
+        visit.setPet(sabaDog);
         visit.setDate(LocalDate.now());
         visit.setDescription("Sneezy Kitty");
         visitService.save(visit);
 
-        Owner owner1 = new Owner();
-        owner1.setFirstName("Fiona");
-        owner1.setLastName("Glenanne");
-        owner1.setAddress("Grunwaldzka 76 / 5");
-        owner1.setCity("Wrocław");
-        owner1.setTelephone("00487302135412");
+        Owner fiona = new Owner();
+        fiona.setFirstName("Fiona");
+        fiona.setLastName("Glenanne");
+        fiona.setAddress("Grunwaldzka 76 / 5");
+        fiona.setCity("Wrocław");
+        fiona.setTelephone("00487302135412");
 
-        Pet owner1Pet0 = new Pet();
-        owner1Pet0.setName("Mrau");
-        owner1Pet0.setOwner(owner1);
-        owner1Pet0.setPetType(pt1);
-        owner1Pet0.setBirthDate(LocalDate.now());
+        Pet mrauCat = new Pet();
+        mrauCat.setName("Mrau");
+        mrauCat.setOwner(fiona);
+        mrauCat.setPetType(catType);
+        mrauCat.setBirthDate(LocalDate.now());
 
-        owner1.getPets().add(owner1Pet0);
-        ownerService.save(owner1);
+        fiona.getPets().add(mrauCat);
+        ownerService.save(fiona);
 
         logger.info("Loaded owners & their pets");
 
         Vet vet0 = new Vet();
         vet0.setFirstName("Sam");
         vet0.setLastName("Axe");
-        vet0.getSpecialities().add(s0Saved);
-        vet0.getSpecialities().add(s1Saved);
+        vet0.getSpecialities().add(radiologySaved);
+        vet0.getSpecialities().add(surgerySaved);
         vetService.save(vet0);
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Jessie");
         vet1.setLastName("Porter");
-        vet1.getSpecialities().add(s2);
+        vet1.getSpecialities().add(dentistry);
         vetService.save(vet1);
 
         logger.info("Loaded vets & their specialities");
