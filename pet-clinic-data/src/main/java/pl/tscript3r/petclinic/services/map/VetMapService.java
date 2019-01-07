@@ -36,7 +36,7 @@ public class VetMapService extends AbstractMapService<Vet, Long> implements VetS
     public Vet save(Vet vet) {
         if(vet != null) {
 
-            // Making sure, that any used speciality has his own id, if not - filling it by using Hibernate
+            // Making sure, that any used speciality has his own id, if not - filling it
             vet.getSpecialities().forEach(speciality -> {
                 if(speciality.getId() == null) {
                     Speciality savedSpeciality = specialityService.save(speciality);
