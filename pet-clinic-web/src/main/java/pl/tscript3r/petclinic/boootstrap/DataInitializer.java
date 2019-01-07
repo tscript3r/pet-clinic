@@ -5,10 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pl.tscript3r.petclinic.models.*;
-import pl.tscript3r.petclinic.services.OwnerService;
-import pl.tscript3r.petclinic.services.PetTypeService;
-import pl.tscript3r.petclinic.services.SpecialityService;
-import pl.tscript3r.petclinic.services.VetService;
+import pl.tscript3r.petclinic.services.*;
 
 import java.time.LocalDate;
 
@@ -19,14 +16,16 @@ public class DataInitializer implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
     private final Logger logger = LoggerFactory.getLogger(DataInitializer.class);
 
     public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-                           SpecialityService specialityService) {
+                           SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -80,6 +79,12 @@ public class DataInitializer implements CommandLineRunner {
 
         owner0.getPets().add(owner0Pet0);
         ownerService.save(owner0);
+
+        Visit visit = new Visit();
+        visit.setPet(owner0Pet0);
+        visit.setDate(LocalDate.now());
+        visit.setDescription("Sneezy Kitty");
+        visitService.save(visit);
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Fiona");
