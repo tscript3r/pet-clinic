@@ -1,4 +1,4 @@
-package pl.tscript3r.petclinic.boootstrap;
+package pl.tscript3r.petclinic.bootstrap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
