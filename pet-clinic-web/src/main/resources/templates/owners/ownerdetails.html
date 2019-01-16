@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Clinic</title>
+</head>
+<body>
+<!--/*@thymesVar id="owner" type="pl.tscript3r.petclinic.models.Owner"*/-->
+    <h2>Owner information</h2>
+
+    <table class="table table-striped" th:object="${owner}">
+        <tr>
+            <th>Name</th>
+            <td th:text="*{firstName + ' ' + lastName}"></td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td th:text="*{address}" ></td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td th:text="*{city}" ></td>
+        </tr>
+        <tr>
+            <th>Telephone</th>
+            <td th:text="*{telephone}" ></td>
+        </tr>
+
+
+    </table>
+</body>
+</html>
